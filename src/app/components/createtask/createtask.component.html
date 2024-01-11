@@ -1,0 +1,27 @@
+<div class="task-creation">
+    <h2>Task Creation</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="createTask()">
+        <label for="name">Task Name:</label>
+        <input type="text" id="name" name="name" formControlName="name">
+
+        <label for="id">Task ID:</label>
+        <input type="text" id="ID" name="ID" formControlName="id">
+
+        <label for="assignee">Assignee:</label>
+        <input type="text" id="assignee" name="assignee" formControlName="assignee">
+
+        <label for="project">Project:</label>
+        <input type="text" id="project" name="project" formControlName="project">
+
+        <label for="startTime">Start Time:</label>
+        <input type="datetime-local" id="startTime" name="startTime" formControlName="startTime">
+
+        <button type="submit">Create Task</button>
+    </form>
+    <div *ngIf="returnResponse; else errorMessage">
+        <span class="text text-success">{{ returnResponse }}</span>
+    </div>
+    <ng-template #errorMessage>
+        <div *ngIf="error_message" class="text text-danger">{{ error_message }}</div>
+    </ng-template>
+</div>

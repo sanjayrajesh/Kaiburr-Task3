@@ -1,0 +1,15 @@
+<div class="task-deletion">
+    <h2> Delete Task</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="deleteTask()">
+        <label for="id">Task ID:</label>
+        <input type="text" id="ID" name="ID" formControlName="id">
+
+        <button type="submit">Delete Task</button>
+    </form>
+    <div *ngIf="returnResponse; else errorMessage">
+        <span class="text text-success">{{ returnResponse }}</span>
+    </div>
+    <ng-template #errorMessage>
+        <div *ngIf="error_message" class="text text-danger">{{ error_message }}</div>
+    </ng-template>
+</div>

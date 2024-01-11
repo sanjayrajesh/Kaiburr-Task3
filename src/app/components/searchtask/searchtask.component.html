@@ -1,0 +1,45 @@
+<div class="task-searching">
+    <h2>Search Task</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="searchTask()">
+        <label for="tasks">Search Tash by:</label>
+        <select id="tasksList" name="tasksList" formControlName="tasksList">
+            <option *ngFor="let entry of getMapEntries()" [value]="entry[0]">
+                {{ entry[1] }}
+            </option>
+        </select>
+
+        <div *ngIf="showOptions(2)">
+            <label for="id">Task ID:</label>
+            <input type="text" id="ID" name="ID" formControlName="id">
+        </div>
+
+        <div *ngIf="showOptions(3)">
+            <label for="name">Task Name:</label>
+            <input type="text" id="name" name="name" formControlName="name">
+        </div>
+
+        <div *ngIf="showOptions(4)">
+            <label for="assignee">Assignee:</label>
+            <input type="text" id="assignee" name="assignee" formControlName="assignee">
+        </div>
+
+        <button type="submit">Search</button>
+    </form>
+    <div *ngIf="returnResponse; else errorMessage">
+        <span class="text text-success">{{ returnResponse }}</span>
+    </div>
+    <ng-template #errorMessage>
+        <div *ngIf="error_message" class="text text-danger">{{ error_message }}</div>
+    </ng-template>
+</div>
+<!--<p>{{ ListResult[0].id }}</p>-->
+<div #resultWindow id="result-window">
+    <div id="output" class="result-box" *ngFor="let rslt of listResult">
+        <p><strong>Task Name : </strong>{{ rslt.name }}</p>
+        <p><strong>Task ID : </strong>{{ rslt.id }}</p>
+        <p><strong>Assignee : </strong>{{ rslt.assignee }}</p>
+        <p><strong>Project : </strong>{{ rslt.project }}</p>
+        <p><strong>Start Time : </strong>{{ rslt.startTime }}</p>
+        <p><strong>sanjayRajeshProperty : </strong>{{ rslt.sanjayRajeshProperty }}</p>
+    </div>
+</div>

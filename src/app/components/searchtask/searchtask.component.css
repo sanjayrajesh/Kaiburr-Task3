@@ -1,0 +1,22 @@
+#result-window {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .result-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 290px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+#output p {
+    padding: 14px 0px 0 0;
+    margin: 0 20px;
+    color: #555;
+}
+
+#output strong {
+    color: #097e92;
+}

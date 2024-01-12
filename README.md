@@ -1,9 +1,9 @@
 # Kaiburr-Task3
 Task 3. WEB UI Forms
 
-The UI is made using Angular. We have used Angular `ReactiveForms` to create Forms for Task creation, search and deletion. Angular takes the inputs from the Users and sends it to the spring boot backend we created in Task1. The Response from spring boot is handled in Angular using `HttpClient` module.
+The UI is made using Angular. I have used Angular `ReactiveForms` to create Forms for Task creation, search and deletion. Angular takes the inputs from the Users and sends it to the spring boot backend we created in Task1. The Response from spring boot is handled in Angular using `HttpClient` module.
 
-The coding is done on VS code and is run on command prompt with the command `ng serve`. We just have to also make sure that the spring boot backend is also running along with it. spring boot by default on tomcat runs on port 8080 and angular defaultly runs on prot 4200.
+The coding is done on VS code and is run on command prompt with the command `ng serve`. We just have to also make sure that the spring boot backend is also running along with it. spring boot by default on tomcat runs on port 8080 and angular defaultly runs on port 4200.
 
 The App mainly has:
 1. A total of 4 components. The `AppComponent` which act as the main page has the top header and the navigation options. Then the remaing components are `CreatetaskComponent`, `SearchtaskComponent`, and `DeletetaskComponent` each of them has `ReactiveForms` which take inputs from users and execute the actions.

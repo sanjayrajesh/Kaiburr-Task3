@@ -1,42 +1,42 @@
 export class Task {
 
-    private _name: string;
-    private _id: string;
-    private _assignee: string;
-    private _project: string;
-    private _startTime: Date;
-    private _sanjayRajeshProperty: string;
+    public name: string;
+    public id: string;
+    public assignee: string;
+    public project: string;
+    public startTime: Date;
+    public sanjayRajeshProperty: string;
 
 
     constructor(name: string, id: string, assignee: string, project: string, startTime: Date) {
-        this._name = name;
-        this._id = id;
-        this._assignee = assignee;
-        this._project = project;
-        this._startTime = startTime;
+        this.name = name;
+        this.id = id;
+        this.assignee = assignee;
+        this.project = project;
+        this.startTime = startTime;
     }
 
-    public get name(): string {
-        return this._name;
-    }
+    // public get getName(): string {
+    //     return this.name;
+    // }
 
-    public get id(): string {
-        return this._id;
-    }
+    // public get getId(): string {
+    //     return this.id;
+    // }
 
-    public get assignee(): string {
-        return this._assignee;
-    }
+    // public get getAssignee(): string {
+    //     return this.assignee;
+    // }
 
-    public get project(): string {
-        return this._project;
-    }
+    // public get getProject(): string {
+    //     return this.project;
+    // }
 
-    public get startTime(): Date {
-        return this._startTime;
-    }
-    
-    public get sanjayRajeshProperty(): string {
-        return this._sanjayRajeshProperty;
-    }
+    // public get getStartTime(): Date {
+    //     return this.startTime;
+    // }
+
+    // public get getSanjayRajeshProperty(): string {
+    //     return this.sanjayRajeshProperty;
+    // }
 }

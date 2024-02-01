@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Task } from 'src/app/models/task.model';
+import { DeletetaskService } from 'src/app/services/deletetask.service';
 import { SearchtaskService } from 'src/app/services/searchtask.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class SearchtaskComponent implements OnInit {
   error_message: string;
   listResult: Task[];
 
-  constructor(private formBuilder: FormBuilder, private searchtaskService: SearchtaskService) { }
+  constructor(private formBuilder: FormBuilder, private searchtaskService: SearchtaskService, private deletetaskService: DeletetaskService) { }
 
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
@@ -31,6 +32,7 @@ export class SearchtaskComponent implements OnInit {
       name: [''],
       id: [''],
       assignee: [''],
+      numList: [''],
     });
 
     this.taskForm.get('tasksList').patchValue(Array.from(SearchtaskComponent.optionList.keys())[0]);
@@ -108,7 +110,7 @@ export class SearchtaskComponent implements OnInit {
         }
       );
     } else {
-      this.searchtaskService.searchTaskByAssignee(this.taskForm.value.assignee).subscribe(
+      this.searchtaskService.searchTaskByAssignee(this.taskForm.value.assignee,this.taskForm.value.numList).subscribe(
         tasks => {
           console.log(tasks);
           this.listResult = tasks;
@@ -124,5 +126,23 @@ export class SearchtaskComponent implements OnInit {
         }
       );
     }
+  }
+
+  onDelete(id: string){
+    //listResult
+    console.log("Inside onDelete");
+    this.deletetaskService.deleteTaskObservable(id).subscribe(
+      (response: string) => {
+        console.log('Success:', response);
+        this.error_message = "";
+        this.returnResponse = response;
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error during task deletion:', error.error);
+        console.log('Error Response Status:', error.status, error.statusText);
+        this.returnResponse = "";
+        this.error_message = error.error;
+      }
+    );
   }
 }

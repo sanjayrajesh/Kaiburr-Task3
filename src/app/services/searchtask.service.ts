@@ -55,9 +55,10 @@ export class SearchtaskService {
     );
   }
 
-  searchTaskByAssignee(taskAssignee: string): Observable<Task[]> {
+  searchTaskByAssignee(taskAssignee: string, numList: number): Observable<Task[]> {
     const headers = new HttpHeaders({
       'assignee': taskAssignee,
+      'num': numList
     });
     return this.http.get<Task[]>(this.apiUrl + '/searchbyassignee', { headers }).pipe(
       map(tasks => {

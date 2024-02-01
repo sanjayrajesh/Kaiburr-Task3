@@ -21,6 +21,12 @@
         <div *ngIf="showOptions(4)">
             <label for="assignee">Assignee:</label>
             <input type="text" id="assignee" name="assignee" formControlName="assignee">
+            <label for="num">Num of Result:</label>
+            <select id="numList" name="numList" formControlName="numList">
+                <option>2</option>
+                <option>5</option>
+                <option>10</option>
+            </select>
         </div>
 
         <button type="submit">Search</button>
@@ -41,5 +47,7 @@
         <p><strong>Project : </strong>{{ rslt.project }}</p>
         <p><strong>Start Time : </strong>{{ rslt.startTime }}</p>
         <p><strong>sanjayRajeshProperty : </strong>{{ rslt.sanjayRajeshProperty }}</p>
+        <button (click)="onDelete(rslt.id)">Delete</button>
     </div>
+    
 </div>
